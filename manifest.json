@@ -1,0 +1,17 @@
+{
+    "name": "Produk Sinom dan Kapsul Bawang Putih",
+    "short_name": "Produk Kami",
+    "description": "Menawarkan produk sinom bubuk dan kapsul bawang putih yang alami.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#4CAF50",
+    "icons": [
+      {
+        "src": "icon.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      }
+    ]
+  }
+  
