@@ -1,1 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halaman Cinta Kita</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/dist/boxicons.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #ffe4e6, #fbb6ce, #ff7597);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease infinite;
+    }
 
+    h1, h2 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 2rem; /* Ukuran emote hati */
+      color: #e63946; /* Warna hati */
+      opacity: 1;
+      transform-origin: center;
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body class="relative text-gray-900">
+
+  <!-- Header -->
+  <header class="py-8 text-center">
+    <h1 class="text-5xl font-bold text-pink-700 animate-fade-in shadow-md pb-4">
+      Halaman Cinta Kita 💖
+    </h1>
+    <p class="text-lg text-pink-500 mt-2">Momen kita, untuk selamanya.</p>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex flex-col items-center mt-10 space-y-12 px-6">
+    <!-- Pecahkan Hati -->
+    <section class="text-center w-full max-w-2xl glass p-6">
+      <h2 class="text-4xl font-bold text-pink-700 mb-4">Pecahkan Hati Cinta</h2>
+      <p class="text-gray-700 mb-4">Klik tombol di bawah untuk melihat keajaiban cinta.</p>
+      <div id="heartContainer" class="relative w-full h-40 bg-transparent flex justify-center items-center"></div>
+      <button id="explodeHeart" class="mt-6 bg-pink-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-pink-700">
+        Pecahkan Hati ❤️
+      </button>
+    </section>
+
+    <!-- Kutipan Hari Ini -->
+    <section class="text-center w-full max-w-2xl glass p-6">
+      <h2 class="text-4xl font-bold text-pink-700 mb-4">Kutipan Hari Ini</h2>
+      <blockquote id="quote" class="italic text-pink-600 text-xl mb-4">"Cinta sejati adalah saling memahami satu sama lain setiap hari."</blockquote>
+      <button id="changeQuote" class="bg-pink-600 text-white px-6 py-2 rounded-full shadow-lg hover:bg-pink-700">
+        Ganti Kutipan 🌹
+      </button>
+    </section>
+
+    <!-- Elemen Mengambang -->
+    <section class="text-center w-full max-w-2xl glass p-6">
+      <h2 class="text-4xl font-bold text-pink-700 mb-4">Elemen Mengambang</h2>
+      <div class="relative w-full h-40 bg-gradient-to-r from-pink-200 via-pink-300 to-pink-400 overflow-hidden rounded-lg">
+        <div class="absolute top-5 left-10 w-12 h-12 bg-pink-300 rounded-full floating"></div>
+        <div class="absolute bottom-8 right-8 w-20 h-20 bg-pink-400 rounded-full floating"></div>
+        <div class="absolute bottom-5 left-5 w-16 h-16 bg-pink-200 rounded-full floating"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-12 w-full bg-pink-600 text-white text-center py-6">
+    <p>Dibuat dengan penuh cinta untukmu ❤️</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Heart Explosion Animation
+    document.getElementById("explodeHeart").addEventListener("click", () => {
+      const heartContainer = document.getElementById("heartContainer");
+      heartContainer.innerHTML = ''; // Clear previous hearts
+
+      const numHearts = 10; // Jumlah emote hati
+      for (let i = 0; i < numHearts; i++) {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.textContent = "❤️"; // Emote hati
+        const size = Math.random() * 30 + 20; // Ukuran acak
+        heart.style.fontSize = `${size}px`;
+
+        // Animasi keluar dari tengah
+        const angle = (i / numHearts) * 2 * Math.PI; // Sudut distribusi
+        const xPos = Math.cos(angle) * 100; // Jarak dari pusat
+        const yPos = Math.sin(angle) * 100; // Jarak dari pusat
+        heart.style.transform = `translate(${xPos}px, ${yPos}px)`;
+
+        gsap.to(heart, {
+          scale: 1.5,
+          opacity: 0,
+          duration: 1.5,
+          ease: "power2.out",
+          onComplete: () => heart.remove()
+        });
+
+        heartContainer.appendChild(heart);
+      }
+    });
+
+    // Change Quote
+    const quotes = [
+      "Cinta adalah seni memahami tanpa kata.",
+      "Setiap hari bersamamu adalah anugerah.",
+      "Kamu adalah alasan aku tersenyum."
+    ];
+    const quoteElement = document.getElementById("quote");
+    document.getElementById("changeQuote").addEventListener("click", () => {
+      const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+      quoteElement.textContent = randomQuote;
+    });
+  </script>
+</body>
+</html> 
