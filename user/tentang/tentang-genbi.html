@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GenBI UNUJA</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Navbar Smooth Transition */
+    #navbar {
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Mobile Menu Toggle Animation */
+    .toggle-icon span {
+      display: block;
+      width: 24px;
+      height: 3px;
+      background-color: #374151;
+      margin: 5px auto;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .toggle-active span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .toggle-active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .toggle-active span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Dropdown Card Styling */
+    .dropdown-card-dekstop {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 220px;
+      background-color: white;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      overflow: hidden;
+      z-index: 50;
+    }
+
+    .dropdown:hover .dropdown-card-dekstop {
+      display: block;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .dropdown-card-dekstop a {
+      display: flex;
+      align-items: center;
+      padding: 10px 16px;
+      color: #374151;
+      text-decoration: none;
+      font-size: 16px;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .dropdown-card-dekstop a:hover {
+      background-color: #1d4ed8;
+      color: white;
+    }
+
+    .dropdown-card-dekstop a i {
+      margin-right: 8px;
+      font-size: 18px;
+    }
+
+    /* dropdown mobile */
+    .block-element{
+        display: block;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .dropdown-card-mobile {
+      /* display: none; */
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 220px;
+      background-color: white;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      /* overflow: hidden; */
+      z-index: 50;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .dropdown-card-mobile a {
+      display: flex;
+      align-items: center;
+      padding: 10px 16px;
+      color: #374151;
+      text-decoration: none;
+      font-size: 16px;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    /* .dropdown-card-dekstop a:hover {
+      background-color: #1d4ed8;
+      color: white;
+    } */
+
+    .dropdown-card-mobile a i {
+      margin-right: 8px;
+      font-size: 18px;
+    }
+
+    /* akhir css navbar */
+
+
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 h-[4000px]">
+
+<!-- Navbar -->
+<header id="navbar" class="fixed top-0 w-full z-50 bg-transparent text-white pt-3">
+  <div class="container mx-auto flex items-center justify-between p-4">
+    <!-- Logo -->
+    <div class="text-2xl font-bold">
+      <a id="navbar-logo" href="#" class="text-white">GenBI UNUJA</a>
+    </div>
+
+    <!-- Navigation Links -->
+    <nav class="hidden md:flex space-x-8 text-lg">
+      <a href="#beranda" class="hover:text-blue-500">Beranda</a>
+      <a href="#kegiatan" class="hover:text-blue-500">Kegiatan</a>
+
+      <!-- Beasiswa BI Dropdown -->
+      <div class="dropdown relative">
+        <a href="#beasiswa" class="hover:text-blue-500 flex items-center">
+          Beasiswa BI <i class="fas fa-angle-down ml-2"></i>
+        </a>
+        <div class="dropdown-card-dekstop">
+          <a href="#tentang-bi"><i class="fas fa-info-circle"></i>Tentang BI</a>
+          <a href="#persyaratan"><i class="fas fa-file-alt"></i>Persyaratan</a>
+          <a href="#pengumuman"><i class="fas fa-bullhorn"></i>Pengumuman</a>
+        </div>
+      </div>
+
+      <!-- Tentang Dropdown -->
+      <div class="dropdown relative">
+        <a href="#tentang" class="hover:text-blue-500 flex items-center">
+          Tentang <i class="fas fa-angle-down ml-2"></i>
+        </a>
+        <div class="dropdown-card-dekstop">
+          <a href="#genbi-point"><i class="fas fa-star"></i>GenBI Point</a>
+          <a href="#tentang-genbi"><i class="fas fa-users"></i>Tentang GenBI</a>
+          <a href="#struktur-organisasi"><i class="fas fa-sitemap"></i>Struktur Organisasi</a>
+        </div>
+      </div>
+
+      <a href="#download" class="hover:text-blue-500">Download</a>
+    </nav>
+
+    <!-- Button -->
+    <div class="hidden md:block">
+      <a href="#hubungi-kami" class="bg-blue-500 text-white px-4 py-3 rounded-lg shadow hover:bg-blue-600 transition-all">
+        Hubungi Kami
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button id="menu-toggle" class="md:hidden toggle-icon focus:outline-none">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+    <nav id="mobile-menu" class="hidden bg-white shadow-md p-4 absolute top-19 right-5 w-[250px] z-50 text-gray-800 flex-col rounded-md">
+        <div class="menu-items flex flex-col">
+            <!-- Menu Item -->
+            <a href="#beranda" class="py-2 hover:text-blue-500">Beranda</a>
+            <a href="#kegiatan" class="py-2 hover:text-blue-500">Kegiatan</a>
+        
+            <!-- Beasiswa Dropdown -->
+            <div class="dropdown relative">
+            <button class="py-2 flex items-center justify-between w-full hover:bg-gray-100">
+                Beasiswa BI <i class="fas fa-angle-down"></i>
+            </button>
+            <div class="dropdown-card-mobile hidden flex-col">
+                <a href="#tentang-bi" class="py-2 px-6 hover:bg-gray-100">Tentang BI</a>
+                <a href="#persyaratan" class="py-2 px-6 hover:bg-gray-100">Persyaratan</a>
+                <a href="#pengumuman" class="py-2 px-6 hover:bg-gray-100">Pengumuman</a>
+            </div>
+            </div>
+        
+            <!-- Tentang Dropdown -->
+            <div class="dropdown relative">
+            <button class="py-2 flex items-center justify-between w-full hover:bg-gray-100">
+                Tentang <i class="fas fa-angle-down"></i>
+            </button>
+            <div class="dropdown-card-mobile hidden flex-col">
+                <a href="#genbi-point" class="py-2 px-6 hover:bg-gray-100">GenBI Point</a>
+                <a href="#tentang-genbi" class="py-2 px-6 hover:bg-gray-100">Tentang GenBI</a>
+                <a href="#struktur-organisasi" class="py-2 px-6 hover:bg-gray-100">Struktur Organisasi</a>
+            </div>
+            </div>
+        
+            <a href="#download" class="py-2 pb-5 hover:text-blue-500">Download</a>
+
+            <a href="#hubungi-kami" class="py-2 bg-blue-500 text-white rounded-lg shadow text-center hover:bg-blue-600">
+            Hubungi Kami
+            </a>
+
+        </div>
+    </nav>  
+
+</header>
+
+<!-- Hero Section -->
+<section id="beranda" class="bg-blue-600 text-white h-screen flex items-center justify-center">
+  <div class="text-center space-y-4">
+    <h1 class="text-4xl md:text-5xl font-bold mb-12">Tentang GenBI</h1>
+    <h1 class="text-xl md:text-3xl mb-12">Home / <span class="text-gray-300 underline underline-offset-[10px]">Tentang</span></h1>
+  </div>
+</section>
+
+<!-- Content Tentang GenBI -->
+<section id="tentang-genbi" class="relative bg-gray-50 py-12 mt-14">
+  <!-- Hero Image -->
+  <div class="container mx-auto flex flex-col md:flex-row items-center justify-between px-4 md:px-12">
+    <!-- Text Content -->
+    <div class="md:w-1/2 space-y-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 animate-hidden animate-from-left">Tentang GenBI</h2>
+      <p class="text-gray-600 text-lg leading-relaxed text-justify animate-hidden animate-from-left">
+        GenBI (Generasi Baru Indonesia) adalah komunitas penerima beasiswa Bank Indonesia yang berkomitmen untuk menjadi agen perubahan. GenBI UNUJA adalah bagian dari komunitas ini, berfokus pada kegiatan edukasi, sosial, dan pengembangan masyarakat.
+      </p>
+      <ul class="space-y-2 text-gray-700 animate-hidden animate-from-left pb-14">
+        <li><i class="fas fa-check-circle text-blue-500"></i> Menjadi komunitas muda inspiratif</li>
+        <li><i class="fas fa-check-circle text-blue-500"></i> Berperan aktif dalam pengembangan masyarakat</li>
+        <li><i class="fas fa-check-circle text-blue-500"></i> Membangun generasi berdaya saing global</li>
+      </ul>
+      <a href="#hubungi-kami" class="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 transition animate-hidden">
+        About Us
+      </a>
+    </div>
+    <!-- Image -->
+    <div class="md:w-1/2 mt-8 md:mt-0 flex justify-center animate-hidden">
+      <img src="../../img/genbi.jpg" alt="Tentang GenBI" class="rounded-lg shadow-lg w-[500px]">
+    </div>
+  </div>
+</section>
+
+<!-- Content Visi dan Misi -->
+<section id="visi-misi" class="relative h-max bg-fixed bg-center bg-cover mt-28" style="background-image: url('../../img/visi-misi.jpg');">
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 flex flex-col justify-center items-center text-center h-full pt-14">
+    <button class="bg-blue-500 text-white px-6 py-2 rounded-md shadow-lg mb-6 hover:bg-blue-600 transition duration-300 ease-in-out animate-hidden">
+      Visi dan Misi
+    </button>
+
+  <div class="relative z-10 flex flex-col md:flex-row items-center justify-center h-full px-4 md:px-16 gap-12 pt-10">
+    <!-- Visi -->
+    <div class="text-white max-w-lg space-y-6 text-center md:text-left self-start">
+      <h2 class="text-3xl font-bold text-center animate-hidden animate-from-left">Visi</h2>
+      <p class="text-lg leading-relaxed text-justify animate-hidden animate-from-left">
+        Menjadi agen perubahan yang memberikan dampak positif bagi masyarakat melalui pendidikan, pemberdayaan, dan inovasi berkelanjutan.
+      </p>
+    </div>
+
+    <!-- Misi -->
+    <div class="text-white max-w-lg space-y-6 text-center md:text-left self-start pb-24">
+      <h2 class="text-3xl font-bold text-center animate-hidden animate-from-right">Misi</h2>
+      <p class="text-lg leading-relaxed text-justify animate-hidden animate-from-right">
+        1. Mendorong mahasiswa untuk menjadi individu yang kreatif dan berdaya saing tinggi.<br>
+        2. Memberikan kontribusi nyata terhadap pengembangan masyarakat melalui program-program sosial.<br>
+        3. Menanamkan nilai-nilai kepemimpinan yang berintegritas dan berorientasi pada kebaikan bersama.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Content Tujuan GenBI -->
+<section id="tujuan-genbi" class="py-24 bg-gray-100">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-center pb-3">
+      <a href="#hubungi-kami" class="bg-blue-500 text-white text-center px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 transition animate-hidden">
+        Tujuan
+      </a>
+    </div>
+    <h2 class="text-center text-4xl font-bold mb-8 text-gray-800 animate-hidden">Tujuan GenBI</h2>
+    <div class="flex flex-wrap justify-center gap-8">
+      <!-- Card 1: Frontliners -->
+      <div class="w-full sm:w-1/3 md:w-[30%] p-4 animate-hidden animate-from-bottom">
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 h-[270px]">
+          <div class="text-center mb-4">
+            <i class="fas fa-users-cog text-blue-600 text-4xl"></i>
+          </div>
+          <h3 class="text-center text-xl font-semibold text-gray-800">Frontliners</h3>
+          <p class="text-center text-gray-600 mt-4">GenBI bertujuan untuk menjadi garda terdepan dalam menghadapi perubahan di dunia pendidikan dan sosial.</p>
+        </div>
+      </div>
+
+      <!-- Card 2: Change Agent -->
+      <div class="w-full sm:w-1/3 md:w-[30%] p-4 animate-hidden animate-from-bottom">
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 h-[270px]">
+          <div class="text-center mb-4">
+            <i class="fas fa-exchange-alt text-blue-600 text-4xl"></i>
+          </div>
+          <h3 class="text-center text-xl font-semibold text-gray-800">Change Agent</h3>
+          <p class="text-center text-gray-600 mt-4">GenBI ingin menjadi agen perubahan yang dapat memberikan dampak positif bagi masyarakat dan bangsa.</p>
+        </div>
+      </div>
+
+      <!-- Card 3: Future Leaders -->
+      <div class="w-full sm:w-1/3 md:w-[30%] p-4 animate-hidden animate-from-bottom">
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 h-[270px]">
+          <div class="text-center mb-4">
+            <i class="fas fa-chalkboard-teacher text-blue-600 text-4xl"></i>
+          </div>
+          <h3 class="text-center text-xl font-semibold text-gray-800">Future Leaders</h3>
+          <p class="text-center text-gray-600 mt-4">GenBI berkomitmen untuk mencetak pemimpin masa depan yang memiliki integritas tinggi dan kompeten.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Divisi GenBI -->
+<section id="divisi-genbi" class="py-10 bg-gray-100">
+  <div class="container mx-auto px-4">
+    <div class="pb-5 px-10">
+      <a href="#hubungi-kami" class="bg-blue-500 text-white text-center px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 transition animate-hidden">
+        Divisi
+      </a>
+    </div>
+    <h2 class="text-4xl px-10 font-bold mb-8 text-gray-800 animate-hidden">Divisi GenBI UNUJA</h2>
+    <div class="flex flex-wrap justify-center">
+      <!-- Card 1: Media Kreatif -->
+      <div class="w-full sm:w-1/3 md:w-[20%] p-4 animate-hidden animate-from-bottom">
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 h-[150px]">
+          <div class="text-center mb-4">
+            <i class="fas fa-tv text-blue-600 text-4xl"></i>
+          </div>
+          <h3 class="text-center text-xl text-gray-800">Media Kreatif</h3>
+        </div>
+      </div>
+
+      <!-- Card 2: Pendidikan -->
+      <div class="w-full sm:w-1/3 md:w-[20%] p-4 animate-hidden animate-from-bottom">
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 h-[150px]">
+          <div class="text-center mb-4">
+            <i class="fas fa-book-reader text-blue-600 text-4xl"></i>
+          </div>
+          <h3 class="text-center text-xl text-gray-800">Pendidikan</h3>
+        </div>
+      </div>
+
+      <!-- Card 3: Kewirausahaan -->
+      <div class="w-full sm:w-1/3 md:w-[20%] p-4 animate-hidden animate-from-bottom">
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 h-[150px]">
+          <div class="text-center mb-4">
+            <i class="fas fa-lightbulb text-blue-600 text-4xl"></i>
+          </div>
+          <h3 class="text-center text-xl text-gray-800">Kewirausahaan</h3>
+        </div>
+      </div>
+
+      <!-- Card 4: Lingkungan Hidup -->
+      <div class="w-full sm:w-1/3 md:w-[20%] p-4 animate-hidden animate-from-bottom">
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 h-[150px]">
+          <div class="text-center mb-4">
+            <i class="fas fa-leaf text-blue-600 text-4xl"></i>
+          </div>
+          <h3 class="text-center text-xl text-gray-800">Lingkungan Hidup</h3>
+        </div>
+      </div>
+
+      <!-- Card 5: Pengabdian Masyarakat -->
+      <div class="w-full sm:w-1/3 md:w-[20%] p-4 animate-hidden animate-from-bottom">
+        <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 h-[150px]">
+          <div class="text-center mb-4">
+            <i class="fas fa-hands-helping text-blue-600 text-4xl"></i>
+          </div>
+          <h3 class="text-center text-xl text-gray-800">Pengabdian Masyarakat</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<script>
+
+  // Scroll Effect for Navbar
+  const navbar = document.getElementById('navbar');
+  const logo = document.getElementById('navbar-logo');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar.classList.add('bg-[rgba(244,244,244,0.8)]', 'shadow-md', 'backdrop-blur-sm');
+      navbar.classList.remove('bg-transparent', 'text-white');
+      navbar.classList.add('text-gray-800');
+      logo.classList.add('text-blue-600');
+      logo.classList.remove('text-white');
+    } else {
+      navbar.classList.add('bg-transparent', 'text-white');
+      navbar.classList.remove('bg-[rgba(244,244,244,0.8)]', 'shadow-md', 'text-gray-800', 'backdrop-blur-sm');
+      logo.classList.add('text-white');
+      logo.classList.remove('text-blue-600');
+    }
+  });
+
+  // Mobile Menu Toggle
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+    menuToggle.classList.toggle('toggle-active');
+  });
+
+// Dropdown mobile
+  const dropButton = document.querySelectorAll('.dropdown button');
+  dropButton.forEach(toggle => {
+  toggle.addEventListener('click', function() {
+  const dropdownCard = this.nextElementSibling; // Cari elemen dropdown-card yang bersangkutan
+
+  // Tutup semua dropdown lainnya
+  document.querySelectorAll('.dropdown-card-mobile').forEach(card => {
+      if (card !== dropdownCard) {
+        card.classList.add('hidden'); // Sembunyikan dropdown lainnya
+      }
+    });
+
+        // Toggle dropdown yang diklik
+        dropdownCard.classList.toggle('hidden'); // Menampilkan/menyembunyikan dropdown yang diklik
+    });
+  });
+  
+  // akhir script navbar
+
+
+ // Scroll-to-Reveal Animation Template
+ const animatedElements = document.querySelectorAll('.animate-hidden');
+
+const handleScrollAnimation = () => {
+  const triggerHeight = window.innerHeight * 0.8; // Adjust visibility threshold
+  animatedElements.forEach((el) => {
+    const rect = el.getBoundingClientRect();
+    // Show element if it's near viewport
+    if (rect.top < triggerHeight && rect.bottom > 0) {
+      el.classList.add('animate-visible');
+      el.classList.remove('animate-hidden');
+    } else {
+      // Hide element if it's out of view
+      el.classList.add('animate-hidden');
+      el.classList.remove('animate-visible');
+    }
+  });
+};
+
+window.addEventListener('scroll', handleScrollAnimation);
+
+// CSS animations
+const style = document.createElement('style');
+style.textContent = `
+  /* Hidden State */
+  .animate-hidden {
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+  }
+
+  /* Visible State */
+  .animate-visible {
+    opacity: 1;
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+  }
+
+  /* Animations from Directions */
+  .animate-from-left {
+    transform: translateX(-50px);
+  }
+  .animate-visible.animate-from-left {
+    transform: translateX(0);
+  }
+
+  .animate-from-right {
+    transform: translateX(50px);
+  }
+  .animate-visible.animate-from-right {
+    transform: translateX(0);
+  }
+
+  .animate-from-top {
+    transform: translateY(-50px);
+  }
+  .animate-visible.animate-from-top {
+    transform: translateY(0);
+  }
+  
+  .animate-from-bottom {
+    transform: translateY(50px);
+  }
+  .animate-visible.animate-from-bottom {
+    transform: translateY(0);
+  }
+`;
+document.head.appendChild(style);
+
+// Initial trigger for elements in view
+document.addEventListener('DOMContentLoaded', () => {
+  handleScrollAnimation();
+});
+
+
+</script>
+
+</body>
+</html>
