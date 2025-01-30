@@ -257,7 +257,7 @@
 <!-- Content Beranda -->
 <section id="hero" class="relative bg-cover bg-center h-screen flex items-center justify-center text-white" style="background-image: url('../../img/visi-misi.jpg');">
     <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-    <div class="text-center relative z-10">
+    <div class="text-center relative z-10 animate-hidden">
       <h1 class="text-5xl font-bold">Selamat Datang di GenBI Malang</h1>
       <p class="text-lg mt-4">Bersama Membangun Negeri dengan Energi untuk Negeri</p>
     </div>
@@ -265,7 +265,7 @@
   
   <!-- Logo Universitas -->
   <section id="logo-universitas" class="py-12 bg-gray-100">
-    <div class="container mx-auto px-4 text-center">
+    <div class="container mx-auto px-4 text-center animate-hidden animate-from botom">
       <div class="flex flex-wrap justify-center gap-10 md:gap-20">
         <img src="../../img/Logo-UNUJA.png" alt="Universitas 1" class="w-24">
         <img src="../../img/LOGO-UIN-MALANG-HI-RES-2048x1990.png" alt="Universitas 2" class="w-24">
@@ -280,28 +280,28 @@
   <section id="tentang-kami" class="py-16 bg-white">
     <div class="container mx-auto px-4">
       <!-- Section 1 -->
-      <div class="grid md:grid-cols-2 gap-8 items-center mb-12">
-        <div>
+      <div class="grid md:grid-cols-2 gap-8 items-center mb-12 mx-10">
+        <div class="animate-hidden animate-from-left">
           <h2 class="text-3xl font-bold text-gray-800 mb-4">Tentang GenBI Malang</h2>
           <p class="text-gray-600 leading-relaxed">
             GenBI Malang adalah komunitas penerima beasiswa Bank Indonesia yang memiliki komitmen dalam pengembangan sosial dan akademik.
           </p>
         </div>
         <div>
-          <img src="../../img/gedung_BI.JPG" alt="Tentang Kami" class="rounded-lg shadow-md">
+          <img src="../../img/gedung_BI.JPG" alt="Tentang Kami" class="rounded-lg shadow-md animate-hidden animate-from-right">
         </div>
       </div>
       
       <!-- Section 2 -->
-      <div class="grid md:grid-cols-2 gap-8 items-center">
-        <div class="md:order-2">
+      <div class="grid md:grid-cols-2 gap-8 items-center mx-10">
+        <div class="md:order-2 animate-hidden animate-from-right">
           <h2 class="text-3xl font-bold text-gray-800 mb-4">Visi dan Misi</h2>
           <p class="text-gray-600 leading-relaxed">
             Kami berperan aktif dalam mendukung literasi keuangan, pengembangan komunitas, dan pemberdayaan generasi muda.
           </p>
         </div>
         <div class="md:order-1">
-          <img src="../../img/gedung_BI.JPG" alt="Visi dan Misi" class="rounded-lg shadow-md">
+          <img src="../../img/gedung_BI.JPG" alt="Visi dan Misi" class="rounded-lg shadow-md animate-hidden animate-from-left">
         </div>
       </div>
     </div>
@@ -310,24 +310,24 @@
 <!-- Anggota Teraktif -->
 <section id="anggota-teraktif" class="py-16 bg-gray-100">
     <div class="container mx-auto px-4 text-center">
-      <h2 class="text-4xl font-bold text-gray-800 mb-8">Anggota Teraktif</h2>
+      <h2 class="text-4xl font-bold text-gray-800 mb-8 animate-hidden">Anggota Teraktif</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
         <!-- Card -->
-        <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+        <div class="bg-white p-8 rounded-lg shadow-lg text-center animate-hidden animate-from-bottom">
           <img src="../../img/anggota1.jpg" alt="Anggota 1" class="w-40 h-40 rounded-full mx-auto mb-4 object-cover">
           <h3 class="text-xl font-bold text-gray-800">Nama Anggota 1</h3>
           <p class="text-gray-600 text-sm">Jurusan X - Universitas Y</p>
           <a href="#" class="text-blue-600 text-2xl mt-3 block"><i class="fab fa-instagram"></i></a>
         </div>
   
-        <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+        <div class="bg-white p-8 rounded-lg shadow-lg text-center animate-hidden animate-from-bottom">
           <img src="../../img/anggota2.jpg" alt="Anggota 2" class="w-40 h-40 rounded-full mx-auto mb-4 object-cover">
           <h3 class="text-xl font-bold text-gray-800">Nama Anggota 2</h3>
           <p class="text-gray-600 text-sm">Jurusan A - Universitas B</p>
           <a href="#" class="text-blue-600 text-2xl mt-3 block"><i class="fab fa-instagram"></i></a>
         </div>
   
-        <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+        <div class="bg-white p-8 rounded-lg shadow-lg text-center animate-hidden animate-from-bottom">
           <img src="../../img/anggota3.jpg" alt="Anggota 3" class="w-40 h-40 rounded-full mx-auto mb-4 object-cover">
           <h3 class="text-xl font-bold text-gray-800">Nama Anggota 3</h3>
           <p class="text-gray-600 text-sm">Jurusan C - Universitas D</p>
@@ -340,24 +340,24 @@
   <!-- Kegiatan Terbaru -->
   <section id="kegiatan-terbaru" class="py-16 bg-white">
     <div class="container mx-auto px-4 text-center">
-      <h2 class="text-4xl font-bold text-gray-800 mb-8">Kegiatan Terbaru</h2>
+      <h2 class="text-4xl font-bold text-gray-800 mb-8 animate-hidden">Kegiatan Terbaru</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Card -->
-        <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-left">
+        <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-left animate-hidden animate-from-bottom">
           <img src="../../img/kegiatan1.jpg" alt="Kegiatan 1" class="rounded-lg mb-4 h-48 w-full object-cover">
           <h3 class="text-xl font-bold text-gray-800">Judul Kegiatan 1</h3>
           <p class="text-gray-600 text-sm mt-2">Tanggal: 10 Januari 2025</p>
           <a href="#" class="text-blue-600 font-semibold mt-4 block">Selengkapnya →</a>
         </div>
   
-        <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-left">
+        <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-left animate-hidden animate-from-bottom">
           <img src="../../img/kegiatan2.jpg" alt="Kegiatan 2" class="rounded-lg mb-4 h-48 w-full object-cover">
           <h3 class="text-xl font-bold text-gray-800">Judul Kegiatan 2</h3>
           <p class="text-gray-600 text-sm mt-2">Tanggal: 20 Februari 2025</p>
           <a href="#" class="text-blue-600 font-semibold mt-4 block">Selengkapnya →</a>
         </div>
   
-        <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-left">
+        <div class="bg-gray-100 p-6 rounded-lg shadow-lg text-left animate-hidden animate-from-bottom">
           <img src="../../img/kegiatan3.jpg" alt="Kegiatan 3" class="rounded-lg mb-4 h-48 w-full object-cover">
           <h3 class="text-xl font-bold text-gray-800">Judul Kegiatan 3</h3>
           <p class="text-gray-600 text-sm mt-2">Tanggal: 5 Maret 2025</p>
