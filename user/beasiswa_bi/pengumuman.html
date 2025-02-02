@@ -243,10 +243,20 @@
 </header>
 
 <!-- Hero Section -->
-<section id="beranda" class="bg-blue-600 text-white h-screen flex items-center justify-center">
-  <div class="text-center space-y-4">
-    <h1 class="text-4xl md:text-5xl font-bold mb-12">Beasiswa Bank Indonesia</h1>
-    <h1 class="text-xl md:text-3xl mb-12">Home / <span class="text-gray-300 underline underline-offset-[10px]">Pengumuman</span></h1>
+<section id="beranda" class="relative h-screen flex items-center justify-center text-white -mt-12">
+  <!-- Background Image -->
+  <div class="absolute inset-0 bg-cover bg-center opacity-50" style="background-image: url('../../img/visi-misi.jpg');"></div>
+
+  <!-- Overlay Gradient -->
+  <div class="absolute inset-0 bg-gradient-to-b to-transparent from-blue-800"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent to-gray-50"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 text-center space-y-4">
+    <h1 class="text-4xl md:text-5xl font-bold">Beasiswa Bank Indonesia</h1>
+    <!-- <h2 class="text-xl md:text-3xl">
+      Home / <span class="text-gray-300 underline underline-offset-[10px]">GenBI Point</span>
+    </h2> -->
   </div>
 </section>
 

@@ -244,8 +244,16 @@
 </header>
 
 <!-- Hero Section -->
-<section id="beranda" class="bg-blue-600 text-white h-screen flex items-center justify-center">
-  <div class="text-center space-y-4">
+<section id="beranda" class="relative h-screen flex items-center justify-center text-white -mt-12">
+  <!-- Background Image -->
+  <div class="absolute inset-0 bg-cover bg-center opacity-50" style="background-image: url('../../img/visi-misi.jpg');"></div>
+
+  <!-- Overlay Gradient -->
+  <div class="absolute inset-0 bg-gradient-to-b to-transparent from-blue-800"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent to-gray-50"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 text-center space-y-4">
     <h1 class="text-4xl md:text-5xl font-bold mb-10 ">Mimpi, Aksi, dan Perubahan!</h1>
     <h1 class="text-xl md:text-2xl mb-12 pb-4 block md:hidden">Kita membentuk masa depan dengan pendidikan, kolaborasi dan aksi nyata. </h1>
     <h1 class="text-xl md:text-2xl mb-12 pb-4 hidden md:block">Kita membentuk masa depan dengan pendidikan, </br>kolaborasi dan aksi nyata. </h1>
@@ -256,16 +264,16 @@
 </section>
   
 <!-- Content Beranda -->
-<section id="hero" class="relative bg-cover bg-center h-screen flex items-center justify-center text-white" style="background-image: url('../../img/visi-misi.jpg');">
+<!-- <section id="hero" class="relative bg-cover bg-center h-screen flex items-center justify-center text-white" style="background-image: url('../../img/visi-misi.jpg');">
     <div class="absolute inset-0 bg-black bg-opacity-50"></div>
     <div class="text-center relative z-10 animate-hidden">
       <h1 class="text-5xl font-bold">Selamat Datang di GenBI Malang</h1>
       <p class="text-lg mt-4">Bersama Membangun Negeri dengan Energi untuk Negeri</p>
     </div>
-</section>
+</section> -->
   
   <!-- Logo Universitas -->
-  <section id="logo-universitas" class="py-12 bg-gray-100">
+  <section id="logo-universitas" class="py-12 bg-gray-50">
     <div class="container mx-auto px-4 text-center animate-hidden animate-from botom">
       <div class="flex flex-wrap justify-center gap-10 md:gap-20">
         <img src="../../img/Logo-UNUJA.png" alt="Universitas 1" class="w-24">
