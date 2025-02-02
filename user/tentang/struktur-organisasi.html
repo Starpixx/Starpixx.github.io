@@ -180,6 +180,7 @@
         .swiper-button-prev,
         .swiper-button-next {
             color: #007bff;
+            display: none;
         }
         .swiper-scrollbar {
             background: #ccc;
@@ -515,42 +516,124 @@ document.addEventListener('DOMContentLoaded', () => {
 // struktur organisasi
 document.addEventListener("DOMContentLoaded", function () {
     const divisi = [
-        { judul: "Media Kreatif", nama: "Medkraf", ketua: "ketua_media.jpg",wakil: "wakil_media.jpg", anggota: "media" },
-        { judul: "Pendidikan", nama: "Pendidikan", ketua: "ketua_pendidikan.jpg",wakil: "wakil_pendidikan.jpg", anggota: "pendidikan" },
-        { judul: "Kewirausahaan", nama: "Kewirausahaan", ketua: "ketua_kewirausahaan.jpg",wakil: "wakil_kewirausahaan.jpg", anggota: "kewirausahaan" },
-        { judul: "Pengabdian Masyarakat", nama: "Pengmas", ketua: "ketua_pengabdian.jpg",wakil: "wakil_pengabdian.jpg", anggota: "pengabdian" },
-        { judul: "Lingkungan Hidup", nama: "LH", ketua: "ketua_lingkungan.jpg",wakil: "wakil_lingkungan.jpg", anggota: "lingkungan" }
+        { 
+            judul: "Media Kreatif", 
+            nama: "Media Kreatif", 
+            ketua: { foto: "ketua_media.jpg", nama: "Nama Ketua Media" },
+            wakil: { foto: "wakil_media.jpg", nama: "Nama Wakil Media" },
+            anggota: [
+                { foto: "media_1.jpg", nama: "Nama Anggota 1" },
+                { foto: "media_2.jpg", nama: "Nama Anggota 2" },
+                { foto: "media_3.jpg", nama: "Nama Anggota 3" },
+                { foto: "media_4.jpg", nama: "Nama Anggota 4" },
+                { foto: "media_5.jpg", nama: "Nama Anggota 5" },
+                { foto: "media_6.jpg", nama: "Nama Anggota 6" },
+                { foto: "media_7.jpg", nama: "Nama Anggota 7" },
+                { foto: "media_8.jpg", nama: "Nama Anggota 8" },
+                { foto: "media_9.jpg", nama: "Nama Anggota 9" },
+                { foto: "media_10.jpg", nama: "Nama Anggota 10" },
+            ]
+        },
+        { 
+            judul: "Pendidikan", 
+            nama: "Pendidikan", 
+            ketua: { foto: "ketua_pendidikan.jpg", nama: "Nama Ketua Pendidikan" },
+            wakil: { foto: "wakil_pendidikan.jpg", nama: "Nama Wakil Pendidikan" },
+            anggota: [
+                { foto: "pendidikan_1.jpg", nama: "Nama Anggota 1" },
+                { foto: "pendidikan_2.jpg", nama: "Nama Anggota 2" },
+                { foto: "pendidikan_3.jpg", nama: "Nama Anggota 3" },
+                { foto: "pendidikan_4.jpg", nama: "Nama Anggota 4" },
+                { foto: "pendidikan_5.jpg", nama: "Nama Anggota 5" },
+                { foto: "pendidikan_6.jpg", nama: "Nama Anggota 6" },
+                { foto: "pendidikan_7.jpg", nama: "Nama Anggota 7" },
+                { foto: "pendidikan_8.jpg", nama: "Nama Anggota 8" },
+                { foto: "pendidikan_9.jpg", nama: "Nama Anggota 9" },
+                { foto: "pendidikan_10.jpg", nama: "Nama Anggota 10" },
+            ]
+        },
+        { 
+            judul: "Kewirausahaan", 
+            nama: "Kewirausahaan", 
+            ketua: { foto: "ketua_kewirausahaan.jpg", nama: "Nama Ketua Kewirausahaan" },
+            wakil: { foto: "wakil_kewirausahaan.jpg", nama: "Nama Wakil Kewirausahaan" },
+            anggota: [
+                { foto: "kewirusahaan_1.jpg", nama: "Nama Anggota 1" },
+                { foto: "kewirusahaan_2.jpg", nama: "Nama Anggota 2" },
+                { foto: "kewirusahaan_3.jpg", nama: "Nama Anggota 3" },
+                { foto: "kewirusahaan_4.jpg", nama: "Nama Anggota 4" },
+                { foto: "kewirusahaan_5.jpg", nama: "Nama Anggota 5" },
+                { foto: "kewirusahaan_6.jpg", nama: "Nama Anggota 6" },
+                { foto: "kewirusahaan_7.jpg", nama: "Nama Anggota 7" },
+                { foto: "kewirusahaan_8.jpg", nama: "Nama Anggota 8" },
+                { foto: "kewirusahaan_9.jpg", nama: "Nama Anggota 9" },
+                { foto: "kewirusahaan_10.jpg", nama: "Nama Anggota 10" },
+            ]
+        },
+        { 
+            judul: "Lingkungan Hidup", 
+            nama: "Lingkungan Hidup", 
+            ketua: { foto: "ketua_Lingkungan Hidup.jpg", nama: "Nama Ketua Lingkungan Hidup" },
+            wakil: { foto: "wakil_Lingkungan Hidup.jpg", nama: "Nama Wakil Lingkungan Hidup" },
+            anggota: [
+                { foto: "LH_1.jpg", nama: "Nama Anggota 1" },
+                { foto: "LH_2.jpg", nama: "Nama Anggota 2" },
+                { foto: "LH_3.jpg", nama: "Nama Anggota 3" },
+                { foto: "LH_4.jpg", nama: "Nama Anggota 4" },
+                { foto: "LH_5.jpg", nama: "Nama Anggota 5" },
+                { foto: "LH_6.jpg", nama: "Nama Anggota 6" },
+                { foto: "LH_7.jpg", nama: "Nama Anggota 7" },
+                { foto: "LH_8.jpg", nama: "Nama Anggota 8" },
+                { foto: "LH_9.jpg", nama: "Nama Anggota 9" },
+                { foto: "LH_10.jpg", nama: "Nama Anggota 10" },
+            ]
+        },
+        { 
+            judul: "Pengabdian Masyarakat", 
+            nama: "Pengabdian Masyarakat", 
+            ketua: { foto: "ketua_Pengabdian Masyarakat.jpg", nama: "Nama Ketua Pengmas" },
+            wakil: { foto: "wakil_Pengabdian Masyarakat.jpg", nama: "Nama Wakil Pengmas" },
+            anggota: [
+                { foto: "Pengmas_1.jpg", nama: "Nama Anggota 1" },
+                { foto: "Pengmas_2.jpg", nama: "Nama Anggota 2" },
+                { foto: "Pengmas_3.jpg", nama: "Nama Anggota 3" },
+                { foto: "Pengmas_4.jpg", nama: "Nama Anggota 4" },
+                { foto: "Pengmas_5.jpg", nama: "Nama Anggota 5" },
+                { foto: "Pengmas_6.jpg", nama: "Nama Anggota 6" },
+                { foto: "Pengmas_7.jpg", nama: "Nama Anggota 7" },
+                { foto: "Pengmas_8.jpg", nama: "Nama Anggota 8" },
+                { foto: "Pengmas_9.jpg", nama: "Nama Anggota 9" },
+                { foto: "Pengmas_10.jpg", nama: "Nama Anggota 10" },
+            ]
+        },
     ];
 
     const container = document.getElementById("struktur-divisi");
     let content = "";
 
     divisi.forEach((div, index) => {
-        let anggotaHtml = "";
-        for (let i = 1; i <= 10; i++) {
-            anggotaHtml += `
-                <div class="swiper-slide w-64">
-                    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-                        <img src="../../img/${div.anggota}_${i}.jpg" alt="Anggota ${i}" class="w-48 h-48 rounded-lg mx-auto mb-4 object-cover">
-                        <h3 class="text-2xl font-bold text-gray-800">Anggota ${i}</h3>
-                        <p class="text-blue-600 font-semibold">${div.nama}</p>
-                    </div>
+        let anggotaHtml = div.anggota.map(anggota => `
+            <div class="swiper-slide w-64">
+                <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                    <img src="../../img/${anggota.foto}" alt="${anggota.nama}" class="w-48 h-48 rounded-lg mx-auto mb-4 object-cover">
+                    <h3 class="text-2xl font-bold text-gray-800">${anggota.nama}</h3>
+                    <p class="text-blue-600 font-semibold">${div.nama}</p>
                 </div>
-            `;
-        }
+            </div>
+        `).join("");
 
         content += `
             <div>
                 <h2 class="text-2xl font-bold text-gray-800 text-center my-10">${div.judul}</h2>
                 <div class="flex flex-wrap justify-center mb-8 gap-10">
-                    <div class="bg-white p-6 rounded-lg shadow-lg text-center max-w-xs">
-                        <img src="../../img/${div.ketua}" alt="CO ${div.nama}" class="w-48 h-48 rounded-lg mx-auto mb-4 object-cover">
-                        <h3 class="text-2xl font-bold text-gray-800">Nama Ketua</h3>
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center w-64">
+                        <img src="../../img/${div.ketua.foto}" alt="${div.ketua.nama}" class="w-48 h-48 rounded-lg mx-auto mb-4 object-cover">
+                        <h3 class="text-2xl font-bold text-gray-800">${div.ketua.nama}</h3>
                         <p class="text-blue-600 font-semibold">CO ${div.nama}</p>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-lg text-center max-w-xs">
-                        <img src="../../img/${div.wakil}" alt="SekCO ${div.nama}" class="w-48 h-48 rounded-lg mx-auto mb-4 object-cover">
-                        <h3 class="text-2xl font-bold text-gray-800">Nama Ketua</h3>
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center w-64">
+                        <img src="../../img/${div.wakil.foto}" alt="${div.wakil.nama}" class="w-48 h-48 rounded-lg mx-auto mb-4 object-cover">
+                        <h3 class="text-2xl font-bold text-gray-800">${div.wakil.nama}</h3>
                         <p class="text-blue-600 font-semibold">SekCO ${div.nama}</p>
                     </div>
                 </div>
@@ -587,6 +670,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+
 
 
 </script>
