@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex bg-gray-100">
+    <!-- Sidebar -->
+    <div class="w-64 bg-blue-900 min-h-screen p-5 text-white fixed md:relative transition-all duration-300 md:block hidden" id="sidebar">
+        <div class="flex justify-between items-center mb-5">
+            <h2 class="text-2xl font-bold">Admin Panel</h2>
+            <button class="md:hidden text-white" onclick="toggleSidebar()">✖</button>
+        </div>
+        <ul>
+            <li class="mb-4"><a href="#" class="block py-2 px-3 rounded hover:bg-blue-700">Beranda</a></li>
+            <li class="mb-4"><a href="#" class="block py-2 px-3 rounded hover:bg-blue-700">Kegiatan</a></li>
+            <li class="mb-4"><a href="#" class="block py-2 px-3 rounded hover:bg-blue-700">Beasiswa BI</a></li>
+            <li class="mb-4">
+                <button class="w-full text-left py-2 px-3 rounded hover:bg-blue-700" onclick="toggleDropdown('biDropdown')">Dropdown ▾</button>
+                <ul id="biDropdown" class="hidden ml-4">
+                    <li class="mb-2"><a href="#" class="block py-2 px-3 rounded hover:bg-blue-600">Tentang BI</a></li>
+                    <li class="mb-2"><a href="#" class="block py-2 px-3 rounded hover:bg-blue-600">Persyaratan</a></li>
+                    <li class="mb-2"><a href="#" class="block py-2 px-3 rounded hover:bg-blue-600">Pengumuman</a></li>
+                </ul>
+            </li>
+            <li class="mb-4"><a href="#" class="block py-2 px-3 rounded hover:bg-blue-700">Tentang</a></li>
+            <li class="mb-4">
+                <button class="w-full text-left py-2 px-3 rounded hover:bg-blue-700" onclick="toggleDropdown('genbiDropdown')">Dropdown ▾</button>
+                <ul id="genbiDropdown" class="hidden ml-4">
+                    <li class="mb-2"><a href="#" class="block py-2 px-3 rounded hover:bg-blue-600">GenBI Point</a></li>
+                    <li class="mb-2"><a href="#" class="block py-2 px-3 rounded hover:bg-blue-600">Tentang GenBI</a></li>
+                    <li class="mb-2"><a href="#" class="block py-2 px-3 rounded hover:bg-blue-600">Struktur Organisasi</a></li>
+                </ul>
+            </li>
+            <li class="mb-4"><a href="#" class="block py-2 px-3 rounded hover:bg-blue-700">Download</a></li>
+        </ul>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="flex-1 md:ml-5 p-5 transition-all duration-300" id="content">
+        <button class="md:hidden bg-blue-900 text-white px-3 py-2 rounded mb-5" onclick="toggleSidebar()">☰</button>
+
+        <!-- content taruh sini -->
+        <h1 class="text-3xl font-bold">Dashboard</h1>
+        <p class="mt-2">Selamat datang di halaman admin.</p>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('hidden');
+        }
+
+        function toggleDropdown(id) {
+            const dropdown = document.getElementById(id);
+            dropdown.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
